@@ -1,12 +1,18 @@
 version: "3.7"
 
 services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - ./:/app
   app:
     image: node:12-alpine
     command: sh -c "yarn install && yarn run dev"
     ports:
       - 3000:3000
-    working_dir: /app
     volumes:
       - ./:/app
     environment:
