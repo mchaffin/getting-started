@@ -1,12 +1,6 @@
 version: "3.7"
 
 services:
-  docs:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
-
   app:
     image: node:12-alpine
     command: sh -c "yarn install && yarn run dev"
